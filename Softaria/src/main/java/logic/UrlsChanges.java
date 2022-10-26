@@ -1,4 +1,4 @@
-package main.java.logic;
+package logic;
 
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;

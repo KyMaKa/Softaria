@@ -1,10 +1,9 @@
-package main.java;
 
 import java.io.IOException;
-import main.java.entity.Message;
-import main.java.entity.Secretary;
-import main.java.logic.UrlsChanges;
-import main.java.logic.UrlsParser;
+import entity.Message;
+import entity.Secretary;
+import logic.UrlsChanges;
+import logic.UrlsParser;
 
 public class Main {
 
