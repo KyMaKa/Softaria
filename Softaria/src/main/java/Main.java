@@ -17,11 +17,12 @@ public class Main {
 
     UrlsChanges changes = new UrlsChanges();
 
-    urlsParser.getUrls();
+    urlsParser.getUrls("src/main/resources/todayUrls.txt", "src/main/resources/yesterdayUrls.txt");
 
     changes.findChanges(urlsParser.getYesterdayUrls(), urlsParser.getTodayUrls());
 
     System.out.println(message.writeMessage(changes.getAdded(), changes.getDeleted(), changes.getChanged()));
 
   }
+
 }

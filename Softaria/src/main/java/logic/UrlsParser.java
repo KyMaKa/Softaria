@@ -10,11 +10,11 @@ public class UrlsParser {
   private final Hashtable<String, String> todayUrls = new Hashtable<>();
   private final Hashtable<String, String> yesterdayUrls = new Hashtable<>();
 
-  public void getUrls() throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/todayUrls.txt"));
+  public void getUrls(String todaySource, String yesterdaySource) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader(todaySource));
     while (reader.ready())
       todayUrls.put(reader.readLine(), reader.readLine());
-    reader = new BufferedReader(new FileReader("src/main/resources/yesterdayUrls.txt"));
+    reader = new BufferedReader(new FileReader(yesterdaySource));
     while (reader.ready())
       yesterdayUrls.put(reader.readLine(), reader.readLine());
   }
