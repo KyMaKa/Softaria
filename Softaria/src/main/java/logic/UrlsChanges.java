@@ -1,4 +1,4 @@
-package main.java;
+package main.java.logic;
 
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
@@ -11,11 +11,11 @@ import java.util.Objects;
 import java.util.Set;
 
 
-public class Changes {
+public class UrlsChanges {
 
-  static Set<String> changed = Collections.synchronizedSet( new HashSet<>());
-  static Set<String> added = Collections.synchronizedSet( new HashSet<>());
-  static Set<String> deleted = Collections.synchronizedSet( new HashSet<>());
+  private final Set<String> changed = Collections.synchronizedSet( new HashSet<>());
+  private final Set<String> added = Collections.synchronizedSet( new HashSet<>());
+  private final Set<String> deleted = Collections.synchronizedSet( new HashSet<>());
 
 
   /**
@@ -24,10 +24,9 @@ public class Changes {
    * @param first - table for yesterday urls.
    * @param second - table for today urls.
    */
-  void getChanges(Hashtable<String, String> first, Hashtable<String, String> second) {
+  public void findChanges(Hashtable<String, String> first, Hashtable<String, String> second) {
 
     Iterator<Entry<String, String>> iter = first.entrySet().stream().iterator();
-
 
     while (iter.hasNext()) {
 
@@ -53,4 +52,15 @@ public class Changes {
     }
   }
 
+  public Set<String> getChanged() {
+    return changed;
+  }
+
+  public Set<String> getAdded() {
+    return added;
+  }
+
+  public Set<String> getDeleted() {
+    return deleted;
+  }
 }
