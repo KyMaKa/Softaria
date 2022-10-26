@@ -1,20 +1,28 @@
 package main.java;
 
 import java.io.IOException;
+import main.java.entity.Message;
+import main.java.entity.Secretary;
+import main.java.logic.UrlsChanges;
+import main.java.logic.UrlsParser;
 
 public class Main {
 
   public static void main(String[] args) throws IOException {
 
-    GetUrls urls = new GetUrls();
-    Changes changes = new Changes();
-    Message message = new Message("Ирина", "Никулина");
+    Secretary secretary = new Secretary("Ирина", "Никулина");
 
-    urls.getUrls();
+    Message message = new Message(secretary);
 
-    changes.getChanges(GetUrls.yesterdayUrls, GetUrls.todayUrls);
+    UrlsParser urlsParser = new UrlsParser();
 
-    System.out.println(message.writeMessage(Changes.added, Changes.deleted, Changes.changed));
+    UrlsChanges changes = new UrlsChanges();
+
+    urlsParser.getUrls();
+
+    changes.findChanges(urlsParser.getYesterdayUrls(), urlsParser.getTodayUrls());
+
+    System.out.println(message.writeMessage(changes.getAdded(), changes.getDeleted(), changes.getChanged()));
 
   }
 }
