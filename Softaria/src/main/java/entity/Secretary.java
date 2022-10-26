@@ -1,4 +1,4 @@
-package main.java;
+package main.java.entity;
 
 public class Secretary {
 
@@ -10,11 +10,11 @@ public class Secretary {
     this.middle_name = middle_name;
   }
 
-  public String getFirst_name() {
+  public String getFirstName() {
     return this.first_name;
   }
 
-  public String getMiddle_name() {
+  public String getMiddleName() {
     return this.middle_name;
   }
 }
