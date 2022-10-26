@@ -1,22 +1,20 @@
-package main.java;
+package main.java.entity;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 
 
 public class Message {
 
-Secretary secretary;
+private final Secretary secretary;
 
-  public Message(String name, String middle_name) {
-    this.secretary = new Secretary(name, middle_name);
+  public Message(Secretary secretary) {
+    this.secretary = secretary;
   }
 
-  public String writeMessage(Set<String> added, Set<String> deleted,
-      Set<String> changed) throws IOException {
+  public final String writeMessage(Set<String> added, Set<String> deleted,
+      Set<String> changed) {
 
-    return "Здравствуйте, дорогая " + secretary.getFirst_name() + " " + secretary.getMiddle_name() + " \n" +
+    return "Здравствуйте, дорогая " + secretary.getFirstName() + " " + secretary.getMiddleName() + " \n" +
         "За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n" +
         "Исчезли следующие страницы:"+deleted.toString().replaceAll("(^.)|(.$)|(, )","\n")+
         "Появились следующие новые страницы "+added.toString().replaceAll("(^.)|(.$)|(, )","\n") +
